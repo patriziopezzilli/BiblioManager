@@ -1,0 +1,131 @@
+<#include "framepublic.html">
+    <!-- End Main Header -->
+  <!-- Start Main Content Holder -->
+  <section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+      <div class="heading-bar">
+        <h2>Modifica Pubblicazioni</h2>
+        <span class="h-line"></span> </div>
+      <!-- Start Main Content -->
+      <section class="checkout-holder">
+        <section class="span9 first">
+          <!-- Start Accordian Section -->
+               <!-- FORM inserimento pubblicazione -->
+                    
+                    <form action="modificapub?id=${pubblicazione.id}" enctype="multipart/form-data" method="post"  style="margin-left: 1em;" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label" for="inputTitolo">Titolo </label>
+                        <div class="controls">
+                          <input type="text" name="titolo" value="${pubblicazione.nome}" placeholder="">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputDescrizione">Descrizione </label>
+                        <div class="controls">
+                         <textarea name="descrizione" value="" cols="50" rows="7">${pubblicazione.descrizione}</textarea>
+                        </div>
+                      </div>
+                        <#if lista_categorie??>
+                        <div class="control-group">
+                        <label class="control-label" for="inputCategoria">Categoria</label>
+                        <div class="controls">
+                          <select name="categoria" >
+                              
+                            <#list lista_categorie as categoria>
+                        
+                            <option value="${pubblicazione.categoria}" >${categoria}</option>
+                               
+                            </#list>
+                           
+                          </select>                        
+                        </div>
+                      </div>
+                        <#else>
+                          </#if>
+                        
+                          
+                         <div class="control-group">
+                        <label class="control-label" for="keyword">Keyword </label>
+                        <div class="controls">
+                            
+                            <input type="hidden" name="idpub" value="${pubblicazione.id}"/>
+                            <input type="hidden" name="idris" value="${ristampa.isbn?c}"/>
+                            <input type="hidden" name="idkey" value="${keyword.id}"/>
+                            
+                          <input type="text" name="keyword" value="${keyword.tag1}" placeholder="Es. Fai da te">
+                          <input type="text" name="keyword2" value="${keyword.tag2}" placeholder="Es. Mago">
+                          <input type="text" name="keyword3" value="${keyword.tag3}" placeholder="Es. Ricetta">
+                        </div>
+                      </div>
+                        <div class="control-group">
+                        <label class="control-label" for="inputISBN">ISBN </label>
+                        <div class="controls">
+                          <input type="text" name="ISBN" maxlength="13" pattern="[0-9]{13}" value="${ristampa.isbn?c}" placeholder="">
+                        </div>
+                      </div>
+                        <div class="control-group">
+                        <label class="control-label" for="inputPagine">Numero Pagine</label>
+                        <div class="controls">
+                          <input type="number" name="numero_pagine" min="1"  value="${ristampa.numpagine}" placeholder="">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputAnnoPub">Anno di Pubblicazione</label>
+                        <div class="controls">
+                          <input type="date" name="anno_pub" placeholder="">
+                        </div>
+                      </div>
+                       <div class="control-group">
+                        <label class="control-label" for="inputEditore">Editore</label>
+                        <div class="controls">
+                          <input type="text" name="editore" value="${ristampa.editore}" placeholder="">
+                        </div>
+                      </div>   
+                       <div class="control-group">
+                        <label class="control-label" for="inputLingua">Lingua</label>
+                        <div class="controls">
+                          <input type="text" name="lingua" value="${ristampa.lingua}" placeholder="">
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label" for="inputDownload">PDF Libro (opzionale)</label>
+                        <div class="controls">
+                          <input type="file" accept="application/pdf" name="PDF"  placeholder="">
+                        </div>
+                      </div>   
+                      <div class="control-group">
+                        <label class="control-label" for="inputIndice">Indice (in maniera chiara e ordinata)</label>
+                       <div class="controls">
+                         <textarea name="indice" cols="50" rows="7">${ristampa.indice}</textarea>
+                        </div>
+                      </div>   
+                          <div class="control-group">
+                        <label class="control-label" for="inputCopertina">Copertina</label>
+                       <div class="controls">
+                           <input type="file" accept="image/*" name="copertina"  placeholder="">
+                        </div>
+                      </div>    
+                           <div class="control-group">
+                        <label class="control-label" for="modifica">Descrizione Modifica </label>
+                       <div class="controls">
+                           <textarea name="modifica" maxlength="140" value="" cols="30" rows="2" ></textarea>
+                        </div>
+                      </div>    
+                          
+                        
+                      <div class="control-group">
+                        <div class="controls">
+                           <button type="submit" class="more-btn">Modifica</button>
+                        </div>
+                      </div>
+                    </form>
+           
+        </section>
+        <section class="span3 first">
+          <!-- SLIDER A DESTRA LATERALE: DA RIEMPIRE -->
+        </section>
+      </section>
+      <!-- End Main Content -->
+    </section>
+  </section>
+  <#include "footer.html">

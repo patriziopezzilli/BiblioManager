@@ -1,0 +1,63 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+
+    <img src="template/images/aboutus/banner-rece.jpg" style="max-height:60% ;max-width: 60%; margin-bottom: 1.5%; position: relative; left:19%;">
+    <hr align=”left” size=”1″ width=”300″ color=”red” noshade>
+    <br>
+
+    <div class='listarece'>
+
+
+        <table class="layout display responsive-table">
+            <thead>
+                <tr>
+                    <th>Utente</th>
+                    <th>Titolo</th>
+                    <th>Contenuto</th>
+                    <th>Azione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <#list listarecensioni as rec>
+                <tr>
+                    <td>${rec.user}</td>
+                    <td>${rec.titolo_rec}</td>
+                    <td>${rec.descrizione_rec}</td>
+                    <td>
+
+
+
+                        <form method="post" >
+
+                            <input type="hidden" value="${rec.id}" name="id"/>
+                            <input type="hidden" value="approva" name="stato"/>
+                            <input type="hidden" value="${rec.id_pub}" name="pub"/>
+                            <button action="gestionerecensioni" class="btn btn-success" type="submit">Approva</button> 
+                        </form> 
+
+
+
+
+                        <form method="post">
+
+                            <input type="hidden" value="${rec.id}" name="id"/>
+                            <input type="hidden" value="rifiuta" name="stato"/>
+
+                            <button action="gestionerecensioni"   class="btn btn-danger" type="submit">Rifiuta</button> 
+                        </form>
+
+                    </td>
+
+                </tr>
+
+                </#list>
+
+            </tbody>
+        </table>	
+
+    </div>
+
+
+</section>
+<#include "footer.html">

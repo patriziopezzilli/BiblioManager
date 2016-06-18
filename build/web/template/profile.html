@@ -1,0 +1,65 @@
+<#include "framepublic.html">
+<!-- End Main Header -->
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <div class="row-fluid show-grid">
+        <!-- BARRA SX -->
+        <div class="span4">
+            <img style="margin-left: 7%" src="template/images/aboutus/user.png">
+            <br>
+            <h1 style="font-family: Verdana"><strong>${nome} ${cognome}</strong></h1>
+            <hr align=”left” size=”1″ width=”300″ color=”red” noshade>
+            <h3 style="font-family: Verdana"><strong>Ruolo:</strong> 
+                <#if gruppi==1>Amministratore</#if>
+                <#if gruppi==2>Moderatore</#if>
+                <#if gruppi==3>Utente Base</#if>
+            </h3>
+        </div>
+
+        <!-- BARRA DX -->
+        <div class="span8">
+
+            <h3 style="font-family: Verdana">Informazioni su ${nome}</h3>
+
+            <table class="layout display responsive-table">
+                <thead>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Citta</th>
+                <th>Anno di Nascita</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>${nome}</td>
+                        <td>${cognome}</td>
+                        <td>${citta}</td>
+                        <td>${annonascita}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <h3 style="font-family: Verdana">Recensioni in attesa di approvazione</h3>
+
+            <table class="layout display responsive-table">
+                <thead>
+                <th>Titolo</th>
+                <th>Voto</th>
+                <th>Contenuto</th>
+                </thead>
+                <tbody>
+                    <#list listarecensioni as rec>
+                    <tr>
+                        <td>${rec.titolo_rec}</td>
+                        <td>${rec.voto}</td>
+                        <td>${rec.descrizione_rec}</td>	
+                    </tr>
+                    </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+<#include "footer.html">

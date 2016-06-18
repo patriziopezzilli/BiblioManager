@@ -1,0 +1,130 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+
+        <div class="heading-bar">
+
+            <img src="template/images/aboutus/titoli.png" style="width: 15% ; height:15% ;">
+
+            <#if cat??> 
+            <form action="listview" method="post">
+
+                <#if lista?first ??>
+
+                <input type="hidden" name="cat" value="${lista?first.categoria}" />
+
+                </#if>
+                <h4>Ordina in base a:</h4>
+
+                <button class="button" type="submit " value="voto" name="voto">Voto</button>
+                <button class="button bottonedx" type="submit " value="titolo" name="titolo">Titolo </button>
+                <br>
+            </form>
+            <#elseif parametro??>
+            <form action="risultati_ricerca" method="post">
+
+                <#if lista?first ??>
+
+                <input type="hidden" name="parametro" value="${parametro}" />
+
+                </#if>
+                <h4>Ordina in base a:</h4>
+
+                <button class="button" type="submit " value="voto" name="voto">Voto</button>
+                <button class="button bottonedx" type="submit " value="titolo" name="titolo">Titolo </button>
+                <br>
+            </form>
+            </#if>
+        </div>
+        <!-- Start Main Content -->
+        <section class="span9 first">
+
+            <section class="list-holder pagination">
+
+                <#if lista?first ??>
+
+                <#list lista as pub> 
+                <article class="item-holder">
+                    <div class="span2">
+                        <a href="book-detail?id=${pub.id}"><img src="${pub.img}" alt="Image07" /></a> </div>
+                    <div class="span10">
+                        <div class="title-bar"><a href="book-detail?id=${pub.id}">${pub.nome}</a> <span>${pub.autore}</span></div>
+                        <#if pub.voto=1> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> </#if>
+                        <#if pub.voto=2> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"></#if>
+                        <#if pub.voto=3> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"></#if>
+                        <#if pub.voto=4> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"></#if>
+                        <#if pub.voto=5> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> </#if>
+                        <p>${pub.descrizione} </p> 
+
+                    </div>
+                </article>
+                </#list>
+
+                <#else>
+                <img src="template/images/aboutus/notfound.png">
+                </#if>
+            </section>
+            <#if cat??>
+            <div class="pagination">
+                <ul>
+                    <#if pagine?first??>
+                    <#if (numberpage-1>=0)>
+                    <li><a href="listview?cat=${cat}&numberpage=${numberpage-1}&numeropagine=${numeropagine}&ordine=${ordine}">precedente</a>
+                        <#else>
+                        </#if>
+                        <#list pagine as pagina>
+                        <#if (pagina?index==numberpage)>
+                    <li class="active"><a href="listview?cat=${cat}&numberpage=${pagina?index}&numeropagine=${numeropagine}&ordine=${ordine}">${pagina?index+1}</a></li>
+                    <#else>
+                    <li><a href="listview?cat=${cat}&numberpage=${pagina?index}&numeropagine=${numeropagine}&ordine=${ordine}">${pagina?index+1}</a></li>
+                    </#if>
+                    </#list>
+                    <#if (numberpage==pagine?size-1)>
+                    <#else>
+                    <li><a href="listview?cat=${cat}&numberpage=${numberpage+1}&numeropagine=${numeropagine}&ordine=${ordine}">successivo</a></li>
+                    </#if>
+                    <#else>
+                    </#if>
+                </ul>
+            </div>
+            </#if>
+            <#if parametro??>
+            <div class="pagination">
+                <ul>
+                    <#if pagine?first??>
+                    <#if (numberpage-1>=0)>
+                    <li><a href="risultati_ricerca?parametro=${parametro}&numberpage=${numberpage-1}&numeropagine=${numeropagine}&ordine=${ordine}">precedente</a>
+                        <#else>
+                        </#if>
+                        <#list pagine as pagina>
+                        <#if (pagina?index==numberpage)>
+                    <li class="active"><a href="listview?parametro=${parametro}&numberpage=${pagina?index}&numeropagine=${numeropagine}&ordine=${ordine}">${pagina?index+1}</a></li>
+                    <#else>
+                    <li><a href="risultati_ricerca?parametro=${parametro}&numberpage=${pagina?index}&numeropagine=${numeropagine}&ordine=${ordine}">${pagina?index+1}</a></li>
+                    </#if>
+                    </#list>
+                    <#if (numberpage+1==pagine?size)>
+                    <#else>
+                    <li><a href="risultati_ricerca?parametro=${parametro}&numberpage=${numberpage+1}&numeropagine=${numeropagine}&ordine=${ordine}">successivo</a></li>
+                    </#if>
+                    <#else>
+                    </#if>
+                </ul>
+            </div>
+            </#if>
+        </section>
+        <!-- End Main Content -->
+
+        <!-- Start Main Side Bar -->
+        <section class="span3">
+            <div class="side-holder">
+                <article class="banner-ad"><img src="template/images/aboutus/pub1.png" alt="Banner Ad" /></article>
+                <img id="laterale" src="template/images/aboutus/laterale2.png" />
+            </div>
+
+        </section>
+        <!-- End Main Side Bar -->
+    </section>
+</section>
+<#include "footer.html">

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="icon" href="template/images/aboutus/icona.ico" />
+        <title>Biblioteca Digitale</title>
+
+        <meta http-equiv="cache-control" content="no-cache">
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+                <meta charset="UTF-8">
+                    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+                        <meta name="viewport" content="width=device-width">
+
+                            <!-- Css Files Start -->
+                            <!--Import Google Icon Font-->
+                            <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+                                <link href="template/css/style.css" rel="stylesheet" type="text/css" /><!-- All css -->
+                                <link href="template/css/bs.css" rel="stylesheet" type="text/css" /><!-- Bootstrap Css -->
+                                <link rel="stylesheet" type="text/css" href="template/css/main-slider.css" /><!-- Main Slider Css -->
+                                <link href="template/css/font-awesome.css" rel="stylesheet" type="text/css" /><!-- Font Awesome Css -->
+                                <noscript>
+                                    <link rel="stylesheet" type="text/css" href="template/css/noJS.css" />
+                                </noscript>
+                                <!-- Css Files End -->
+
+                                </head>
+                                <body>
+                                    <!-- Start Main Wrapper -->
+                                    <div class="wrapper">
+                                        <!-- Start Top Nav Bar -->
+                                        <section class="top-nav-bar">
+                                            <section class="container-fluid container">
+                                                <section class="row-fluid">
+                                                    <section class="span6">
+                                                        <ul class="top-nav">
+                                                            <#if session??>
+
+                                                            <#if activehome??>
+                                                            <li><a href="index"  class="active">Home</a></li>
+                                                            <#else>
+                                                            <li><a href="index">Home</a></li>
+                                                            </#if>
+
+
+                                                            <#if activecategorie??>
+                                                            <li><a href="listacategorie" class="active">Categorie</a></li>
+                                                            <#else>
+                                                            <li><a href="listacategorie">Categorie</a></li>
+                                                            </#if>
+
+
+
+                                                            <#if activegestionesistema??>
+                                                            <#if gruppo==1>
+                                                            <li><a href="gestionesistema" class="active">Gestione Sistema</a></li>
+                                                            <#else></#if>
+                                                            <#else>
+                                                            <#if gruppo!=3>
+                                                            <li><a href="gestionesistema">Gestione Sistema</a></li>
+                                                            <#else></#if>
+                                                            </#if>
+
+                                                            <#else>
+
+
+
+                                                            <#if activehome??>
+                                                            <li><a href="index"  class="active">Home</a></li>
+                                                            <#else>
+                                                            <li><a href="index">Home</a></li>
+                                                            </#if>
+                                                            <#if activecategorie??>
+                                                            <li><a href="listacategorie" class="active">Categorie</a></li>
+                                                            <#else>
+                                                            <li><a href="listacategorie">Categorie</a></li>
+                                                            </#if>            
+
+
+                                                            </#if>
+                                                        </ul>
+                                                    </section>
+                                                    <section class="span6 e-commerce-list">
+                                                        <ul>
+
+
+                                                        </ul>
+
+                                                    </section>
+                                                </section>
+                                            </section>
+                                        </section>
+                                        <!-- End Top Nav Bar -->
+                                        <header id="main-header">
+                                            <section class="container-fluid container">
+                                                <section class="row-fluid">
+                                                    <section class="span4">
+                                                        <h1 id="logo"> <a href="index"><img src="template/images/logo.png" /></a> </h1>
+                                                    </section>
+                                                    <section class="span8">
+
+                                                        <#if session??>
+                                                        <ul class="top-nav2"> <strong>
+                                                                <li>Benvenuto ${session}</li>
+                                                            </strong>
+                                                            <li><a href="logout">Logout</a></li>
+
+                                                            <li><a href="profile">Profilo Personale</a></li>
+
+                                                        </ul> 
+                                                        <#else>
+                                                        <ul class="top-nav2">
+                                                            <li><a href="login">Login</a></li>
+                                                            <li> <a href="register">Registrati</a></li>
+                                                        </ul>
+                                                        </#if>
+                                                        <div class="search-bar">
+                                                            <form action="risultati_ricerca" method="POST">
+                                                                <input name="parametro" type="text" Placeholder="Inserisci parametro di ricerca..." required/>
+                                                                <input class="button" type="submit" value="Cerca" />
+                                                            </form>
+                                                        </div>
+                                                    </section>
+                                                </section>
+                                            </section>
+                                            <!-- Start Main Nav Bar -->
+
+                                            <!-- End Main Nav Bar -->
+                                        </header>

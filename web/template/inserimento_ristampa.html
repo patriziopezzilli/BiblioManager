@@ -1,0 +1,80 @@
+<#include "framepublic.html">
+
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+        <div class="heading-bar">
+            <h2>Inserimento Ristampa</h2>
+            <span class="h-line"></span> </div>
+        <!-- Start Main Content -->
+        <section class="checkout-holder">
+            <section class="span9 first">
+                <!-- FORM inserimento pubblicazione -->
+
+                <form action="inserimento_ristampa?id=${idopera}" enctype="multipart/form-data" method="post" style="margin-left: 1em;" class="form-horizontal">
+
+                    <div class="control-group">
+                        <label class="control-label" for="inputISBN">ISBN </label>
+                        <div class="controls">
+                            <input type="text" name="ISBN" maxlength="13" pattern="[0-9]{13}" placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPagine">Numero Pagine</label>
+                        <div class="controls">
+                            <input type="number" name="numero_pagine"  min="1" placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAnnoPub">Anno di Pubblicazione</label>
+                        <div class="controls">
+                            <input type="date" name="anno_pub"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputEditore">Editore</label>
+                        <div class="controls">
+                            <input type="text" name="editore"  placeholder="">
+                        </div>
+                    </div>   
+                    <div class="control-group">
+                        <label class="control-label" for="inputLingua">Lingua</label>
+                        <div class="controls">
+                            <input type="text" name="lingua"  placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDownload">PDF Libro (opzionale)</label>
+                        <div class="controls">
+                            <input type="file" accept="application/pdf" name="PDF"  placeholder="">
+                        </div>
+                    </div>   
+                    <div class="control-group">
+                        <label class="control-label" for="inputIndice">Indice (in maniera chiara e ordinata)</label>
+                        <div class="controls">
+                            <textarea name="indice" cols="50" rows="7"></textarea>
+                        </div>
+                    </div>   
+                    <div class="control-group">
+                        <label class="control-label" for="inputCopertina">Copertina</label>
+                        <div class="controls">
+                            <input type="file" accept="image/*" name="copertina"  placeholder="">
+                        </div>
+                    </div>       
+
+                    <input type="hidden" name="id" value="${idopera}"> 
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="more-btn">Inserisci</button>
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+            <section class="span3 first">
+            </section>
+        </section>
+        <!-- End Main Content -->
+    </section>
+</section>
+<#include "footer.html">

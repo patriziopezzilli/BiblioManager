@@ -1,0 +1,43 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    
+    <#if gruppo==1>
+    <img src="template/images/aboutus/banneradmin.jpg" style="max-height:60% ;max-width: 60%; margin-bottom: 1.5%; position: relative; left:19%;">
+    <#else>
+    <img src="template/images/aboutus/bannermod.png" style="max-height:60% ;max-width: 60%; margin-bottom: 1.5%; position: relative; left:19%;">
+    </#if>
+    <hr align=”left” size=”1″ width=”300″ color=”red” noshade>
+    <br>
+    <div class="row-fluid show-grid">
+        <div class="span4">
+            <img style="" src="template/images/aboutus/review.png">
+            <h3 style="font-family: Verdana">Gestione Recensioni</h3>
+
+            <ul class="collection">
+                <form method="get" action="gestionerecensioni">
+
+                    <p> <button class="button btn-large" type="submit">Approva / Rifiuta</button>  </p>
+
+                </form>
+            </ul>
+
+            <br>
+        </div>
+        <#if gruppo==1>  
+        <div class="span4"><img src="template/images/aboutus/user.png">
+            <h3 style="font-family: Verdana">Gestione Utenza</h3>
+
+            <p> <form method="get" action="gestioneutenza"><button class="button btn-large" type="submit">Promuovi / Elimina Utente</button></form> </p> <br></div><#else></#if> 
+
+        <div class="span4"><img src="template/images/aboutus/book.png"><h3 style="font-family: Verdana">Inserimento Pubblicazioni</h3>
+
+            <form method="get" action="inserimento_pub"><button class="button btn-large" type="submit">Inserisci</button></form> </p>
+
+        </div>
+        <br>
+    </div>
+</div>
+
+</section>
+<#include "footer.html">

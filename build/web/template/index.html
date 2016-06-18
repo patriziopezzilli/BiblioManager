@@ -1,0 +1,74 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+        <img id="ultimiarrivi" src="template/images/aboutus/ultimiarrivi2.png">
+        <section class="span12 slider">
+            <section class="main-slider">
+                <div class="bb-custom-wrapper">
+                    <div id="bb-bookblock" class="bb-bookblock">
+
+                        <#if ultime_pubblicazioni?? && copertine??>
+                        <#list ultime_pubblicazioni as pubblicazione>
+                        <div class="bb-item">
+                            <div class="bb-custom-content">                 
+                                <div class="slide-inner">
+                                    <div class="span4 book-holder"> <a href="book-detail?id=${pubblicazione.id}"><img src="${copertine[pubblicazione?index]}" alt="Book" /></a>
+                                    </div>
+                                    <div class="span8 book-detail">
+                                        <h2>${pubblicazione.nome}</h2>
+                                        <strong class="title">${pubblicazione.autore}</strong> <span class="rating-bar"> 
+                                            <#if pubblicazione.voto=1> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> </#if>
+                                            <#if pubblicazione.voto=2> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"></#if>
+                                            <#if pubblicazione.voto=3> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"></#if>
+                                            <#if pubblicazione.voto=4> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"></#if>
+                                            <#if pubblicazione.voto=5> <img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"><img src="template/images/aboutus/stella.png" style="width:20px ; height: 20px;"> </#if>
+                                        </span> <a href="book-detail?id=${pubblicazione.id}"  class="shop-btdn"><img alt="bottone"  src="template/images/shop-btn.png"/></a>
+                                        <#if download[pubblicazione?index]>
+                                        <div class="cap-holder">
+                                            <p><img src="template/images/image27.png" alt="Best Choice" align="right"/> </p>
+                                        </div>
+                                        <#else>
+                                        </#if>
+
+                                    </div>  
+                                </div>                  
+                            </div>
+                        </div>     
+                        </#list>
+                        <#else>
+                        </#if>
+                        </section>
+                        <span class="slider-bottom"><img src="template/images/slider-bg.png" alt="Shadow"/></span> </section>
+                        <section class="span12 wellcome-msg m-bottom first">
+                            <h2>Benvenuto nella <strong>Biblioteca Digitale</strong>.</h2>
+                            <p>Pochi libri cambiano una vita. Quando la cambiano &egrave per sempre, si aprono porte che non si immaginavano, si entra e non si torna più indietro.
+                                (Christian Bobin)</p>
+                        </section>
+                        </section>
+                        <section class="row-fluid m-bottom">
+                            <section class="span12">
+                                <div class="featured-author">
+                                    <div class="left"> <span class="author-img-holder"><img src="template/images/image16.png" alt=""/></span>
+                                        <div class="author-det-box">
+                                            <div class="author-det">
+                                                <ul class="books-list">
+                                                    <#if ultime_modificate?? && copertine_modificate??>
+                                                    <#list ultime_modificate as modificata>
+                                                    <li><div class="c-b-img"> <a href="book-detail?id=${modificata.id}"><img src="${copertine_modificate[modificata?index]}" alt="" /></a> </div></li>                  
+                                                    </#list>
+                                                    <#else>
+                                                    </#if>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                        <section class="row-fluid m-bottom">
+
+                        </section>
+                        </section>
+                        <#include "footer.html">

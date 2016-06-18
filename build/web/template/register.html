@@ -1,0 +1,77 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+        <div class="heading-bar">
+            <h2>Registrazione</h2>
+            <span class="h-line"></span> </div>
+        <section class="checkout-holder">
+            <section class="span9 first">
+                <!-- Start Accordian Section -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">  </a></div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+
+                                <div class="span5 check-method-right"> <strong class="green-t">Registrazione</strong>
+
+                                    <!-- FORM Registrazione -->
+
+                                    <form action="register" method="post" class="form-horizontal">
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputEmail">Email </label>
+                                            <div class="controls">
+                                                <input type="text" name="u"  placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputPassword">Password </label>
+                                            <div class="controls">
+                                                <input type="password" name="p"  placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputUsername">Nome</label>
+                                            <div class="controls">
+                                                <input type="text" name="n"  placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputCognome">Cognome</label>
+                                            <div class="controls">
+                                                <input type="text" name="co"  placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputCity">Citt&agrave </label>
+                                            <div class="controls">
+                                                <input type="text" name="ci"  placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputDate">Data di nascita </label>
+                                            <div class="controls">
+                                                <input type="date" name="da"  placeholder="" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <button type="submit" value="register" name="register" class="more-btn">Registrati</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </section>
+            <section class="span3 first">
+            </section>
+        </section>
+        <!-- End Main Content -->
+    </section>
+</section>
+<#include "footer.html">

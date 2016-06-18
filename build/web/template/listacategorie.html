@@ -1,0 +1,40 @@
+<#include "framepublic.html">
+<!-- End Main Header -->
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+        <div class="heading-bar">
+            <img src="template/images/aboutus/catego.png" style="width: 12% ; height:12% ;">
+            <span class="h-line"></span>
+        </div>
+        <!-- Start Main Content -->
+        <section class="span9 first">
+            <div class="product_sort">
+            </div>
+            <section class="list-holder">
+                <#list lista_categorie as cat> 
+                <article class="item-holder">
+                    <div class="span2">
+
+                        <div class="span10">
+                            <div class="title-bar"><a href="listview?cat=${cat}">${cat}</a> </div>
+
+                        </div>
+                </article>
+                </#list>
+
+            </section>
+
+        </section>
+        <!-- Start Main Side Bar -->
+        <section class="span3">
+            <div class="side-holder">
+                <article class="banner-ad"><img src="template/images/aboutus/pub2.png" alt="Banner Ad" /></article>
+                <img id="laterale" src="template/images/aboutus/laterale1.png" />
+            </div>
+
+        </section>
+        <!-- End Main Side Bar -->
+    </section>
+</section>
+<#include "footer.html">

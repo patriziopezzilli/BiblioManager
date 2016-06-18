@@ -1,0 +1,71 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+
+    <img src="template/images/aboutus/banner-utenza.jpg" style="max-height:60% ;max-width: 60%; margin-bottom: 1.5%; position: relative; left:19%;">
+    <hr align=”left” size=”1″ width=”300″ color=”red” noshade>
+    <br>
+
+    <form method="post" ">
+        <div class="search-bar" >
+            <input name="parametro" type="text" value="Inserisci stringa di ricerca..." />
+            <input class="button btn" name="" action="gestioneutenza"  type="submit" value="Cerca" style="float:right; margin-bottom: 1px;" />
+        </div>
+    </form>
+
+    <#if parametro ??>
+    <h2>Risultati di ricera per ${parametro}</h2>
+    <#else>
+    </#if>
+
+    <table class="layout display responsive-table">
+        <thead>
+            <tr>
+                <th>Utente</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Ruolo</th>
+                <th>Azione</th>
+            </tr>
+        </thead>
+        <tbody>
+            <#if listautenti??>
+            <#list listautenti as user>
+            <tr>
+                <td>${user.usermail}</td>
+                <td>${user.nome}</td>
+                <td>${user.cognome}</td>
+                <#if user.gruppo==2><td>Moderatore</td></#if>
+                <#if user.gruppo==3><td>Utente Base</td></#if>
+                <td>
+
+                    <#if user.gruppo==3>
+                    <form method="post" >
+                        <input type="hidden" name="utente" value="${user.usermail}">
+                        <input type="hidden" name="parametro" value="${parametro}">    
+                        <button action="gestioneutenza" class="btn btn-success" type="submit">Promuovi a Moderatore</button> 
+                    </form> 
+                    </#if>
+
+                    <#if user.gruppo==2>
+                    <form method="post">
+                        <input type="hidden" name="utente" value="${user.usermail}">
+                        <input type="hidden" name="parametro" value="${parametro}">
+
+                        <button action="gestioneutenza"   class="btn btn-danger" type="submit">Degrada a utente base</button> 
+                    </form>
+                    </#if>
+
+                </td>
+
+            </tr>
+
+            </#list>
+            </#if>
+        </tbody>
+    </table>
+
+</div>
+
+</section>
+<#include "footer.html">

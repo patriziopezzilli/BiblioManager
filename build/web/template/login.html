@@ -1,0 +1,53 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+        <div class="heading-bar">
+            <h2>Login</h2>
+            <span class="h-line"></span> </div>
+        <section class="checkout-holder">
+            <section class="span9 first">
+                <!-- Start Accordian Section -->
+                <div class="accordion" id="accordion2">
+                    <div class="accordion-group">
+                        <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">  </a></div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+
+                                <div class="span5 check-method-right"> <strong class="green-t">Login</strong>
+                                    <p>Gi&agrave registrato? effettua il login qui sotto:</p>
+                                    <!-- FORM LOGIN -->
+
+                                    <form action="login" method="post" class="form-horizontal">
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
+                                            <div class="controls">
+                                                <input type="text" name="name" id="inputEmail" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputPassword">Password <sup>*</sup></label>
+                                            <div class="controls">
+                                                <input type="password" name="password" id="inputPassword" placeholder="">
+                                            </div>
+                                        </div>
+                                        <p><a href="#">Password dimenticata?</a></p>
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <button type="submit" value="login" class="more-btn">Login</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </section>
+            <section class="span3 first">
+            </section>
+        </section>
+        <!-- End Main Content -->
+    </section>
+</section>
+<#include "footer.html">

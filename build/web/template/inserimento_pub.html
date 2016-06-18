@@ -1,0 +1,121 @@
+<#include "framepublic.html">
+<!-- Start Main Content Holder -->
+<section id="content-holder" class="container-fluid container">
+    <section class="row-fluid">
+        <div class="heading-bar">
+            <h2>Inserimento Pubblicazioni</h2>
+            <span class="h-line"></span> </div>
+        <!-- Start Main Content -->
+        <section class="checkout-holder">
+            <section class="span9 first">
+                <!-- FORM inserimento pubblicazione -->
+
+                <form action="inserimento_pub" enctype="multipart/form-data" method="post" class="form-horizontal" style="margin-left: 1em;">
+                    <div class="control-group">
+                        <label class="control-label" for="inputTitolo">Titolo </label>
+                        <div class="controls">
+                            <input type="text" name="titolo"  placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAutore">Autore </label>
+                        <div class="controls">
+                            <input type="text" name="autore"  placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDescrizione">Descrizione </label>
+                        <div class="controls">
+                            <textarea name="descrizione" cols="50" rows="7" required ></textarea>
+                        </div>
+                    </div>
+                    <#if lista_categorie??>
+                    <div class="control-group">
+                        <label class="control-label" for="inputCategoria">Categoria</label>
+                        <div class="controls">
+                            <select name="categoria" >
+
+                                <#list lista_categorie as categoria>
+
+                                <option value="${categoria}" >${categoria}</option>
+
+                                </#list>
+
+                            </select>                        
+                        </div>
+                    </div>
+                    <#else>
+                    </#if>
+                    <div class="control-group">
+                        <label class="control-label" for="keyword">Keyword </label>
+                        <div class="controls">
+                            <input type="text" name="keyword"  placeholder="Es. Fai da te" required />
+                            <input type="text" name="keyword2"  placeholder="Es. Mago" required />
+                            <input type="text" name="keyword3"  placeholder="Es. Ricetta" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputISBN">ISBN </label>
+                        <div class="controls">
+                            <input type="text" name="ISBN" maxlength="13" pattern="[0-9]{13}" placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPagine">Numero Pagine</label>
+                        <div class="controls">
+                            <input type="number" name="numero_pagine" min="1" placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAnnoPub">Anno di Pubblicazione</label>
+                        <div class="controls">
+                            <input type="date" name="anno_pub"  placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputEditore">Editore</label>
+                        <div class="controls">
+                            <input type="text" name="editore"  placeholder="" required />
+                        </div>
+                    </div>   
+                    <div class="control-group">
+                        <label class="control-label" for="inputLingua">Lingua</label>
+                        <div class="controls">
+                            <input type="text" name="lingua"  placeholder="" required />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputDownload">PDF Libro (opzionale)</label>
+                        <div class="controls">
+                            <input type="file" accept="application/pdf" name="PDF"  placeholder="">
+                        </div>
+                    </div>   
+                    <div class="control-group">
+                        <label class="control-label" for="inputIndice">Indice (in maniera chiara e ordinata)</label>
+                        <div class="controls">
+                            <textarea name="indice" cols="50" rows="7" required></textarea>
+                        </div>
+                    </div>   
+                    <div class="control-group">
+                        <label class="control-label" for="inputCopertina">Copertina</label>
+                        <div class="controls">
+                            <input type="file" accept="image/*" name="copertina"  placeholder="" required />
+                        </div>
+                    </div>       
+
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="more-btn">Inserisci</button>
+                        </div>
+                    </div>
+                </form>
+
+            </section>
+            <section class="span3 first">
+            </section>
+        </section>
+        <!-- End Main Content -->
+    </section>
+</section>
+<#include "footer.html">
